@@ -2,7 +2,8 @@ import { BlogPost } from "@/types/blog.type";
 
 import Link from "next/link";
 
-import { BlogPostList, BlogPostListItem } from "@/components/blog-post-list";
+import { BlogPostCardList, BlogPostCard } from "@/components/blog-post";
+import { GuidelinesCornerPlus } from "@/components/guidelines";
 import {
   SectionHeader,
   SectionHeaderActions,
@@ -40,8 +41,9 @@ export function LatestArticles() {
   ];
 
   return (
-    <section className="py-16">
+    <section data-widget="latest-articles" className="relative py-16">
       <div className="container">
+        {/* Section Header */}
         <SectionHeader>
           <SectionHeaderContent>
             <SectionHeaderTitle>Latest Articles</SectionHeaderTitle>
@@ -59,15 +61,15 @@ export function LatestArticles() {
           </SectionHeaderActions>
         </SectionHeader>
 
-        <BlogPostList>
+        {/* Blog Post List */}
+        <BlogPostCardList>
           {blogPosts.map((blogPost) => (
-            <BlogPostListItem
-              key={blogPost.id}
-              blogPost={blogPost as BlogPost}
-            />
+            <BlogPostCard key={blogPost.id} blogPost={blogPost as BlogPost} />
           ))}
-        </BlogPostList>
+        </BlogPostCardList>
       </div>
+
+      <GuidelinesCornerPlus />
     </section>
   );
 }
