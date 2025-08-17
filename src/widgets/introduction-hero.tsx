@@ -1,10 +1,9 @@
 import { configs } from "@/lib/configs";
 import { SocialLinks } from "./social-links";
-import { SectionCorners } from "@/components/section-corners";
 
 export function IntroductionHero() {
   return (
-    <section data-widget="introduction-hero" className="relative py-16">
+    <section data-widget="introduction-hero" className="py-16">
       <div className="container">
         <div className="grid grid-cols-12 gap-8 items-center">
           <div className="col-span-8">
@@ -23,8 +22,6 @@ export function IntroductionHero() {
           <div className="col-span-4"></div>
         </div>
       </div>
-
-      <SectionCorners />
     </section>
   );
 }

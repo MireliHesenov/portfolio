@@ -1,7 +1,9 @@
 import { cn } from "@/lib/utils";
 
 function SectionHeader({ className, ...props }: React.ComponentProps<"div">) {
-  return <div className={cn("flex items-start gap-6 mb-6", className)} {...props} />;
+  return (
+    <div className={cn("flex items-start gap-6 mb-6", className)} {...props} />
+  );
 }
 
 function SectionHeaderContent({
@@ -28,7 +30,12 @@ function SectionHeaderDescription({
   className,
   ...props
 }: React.ComponentProps<"p">) {
-  return <p className={cn("md:max-w-[80%] text-muted-foreground", className)} {...props} />;
+  return (
+    <p
+      className={cn("md:max-w-[80%] text-lg text-muted-foreground", className)}
+      {...props}
+    />
+  );
 }
 
 function SectionHeaderActions({

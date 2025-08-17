@@ -17,7 +17,7 @@ interface DecryptedTextProps extends HTMLMotionProps<"span"> {
   animateOn?: "view" | "hover";
 }
 
-export default function DecryptedText({
+export function DecryptedText({
   text,
   speed = 50,
   maxIterations = 10,
