@@ -1,4 +1,23 @@
-export function SectionCorners() {
+import { cn } from "@/lib/utils";
+
+type GuidelinesProps = {
+  className?: string;
+  isFixed?: boolean;
+};
+
+export function Guidelines({ className, isFixed = false }: GuidelinesProps) {
+  return (
+    <div
+      className={cn(
+        "absolute inset-0 -z-10 max-w-screen-xl mx-auto border-x border-border border-dashed pointer-events-none",
+        isFixed && "fixed",
+        className
+      )}
+    />
+  );
+}
+
+export function GuidelinesCornerPlus() {
   return (
     <div className="absolute inset-0 max-w-screen-xl mx-auto md:block hidden pointer-events-none opacity-40">
       <span className="after:content-[''] after:absolute after:top-0 after:left-0 after:w-px after:h-10 after:bg-foreground after:-translate-y-1/2"></span>

@@ -7,14 +7,18 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import DecryptedText from "@/components/ui/decrypted-text";
+import { DecryptedText } from "@/components/ui/decrypted-text";
+import { Guidelines } from "@/components/guidelines";
 
 import ThemeToggle from "@/widgets/theme-toggle";
 import { configs } from "@/lib/configs";
 
 export function Header() {
   return (
-    <header data-widget="header" className="border-b">
+    <header
+      data-widget="header"
+      className="sticky top-0 z-20 bg-background/60 backdrop-blur-md border-b"
+    >
       <div className="container">
         <div className="grid grid-cols-faf items-center h-18">
           <div>
@@ -35,7 +39,7 @@ export function Header() {
                 <NavigationMenuLink
                   asChild
                   className={navigationMenuTriggerStyle({
-                    className: "flex-row",
+                    className: "flex-row bg-transparent",
                   })}
                 >
                   <Link href="/">
@@ -48,7 +52,7 @@ export function Header() {
                 <NavigationMenuLink
                   asChild
                   className={navigationMenuTriggerStyle({
-                    className: "flex-row",
+                    className: "flex-row bg-transparent",
                   })}
                 >
                   <Link href="/projects">
@@ -61,7 +65,7 @@ export function Header() {
                 <NavigationMenuLink
                   asChild
                   className={navigationMenuTriggerStyle({
-                    className: "flex-row",
+                    className: "flex-row bg-transparent",
                   })}
                 >
                   <Link href="/blog">
@@ -74,7 +78,7 @@ export function Header() {
                 <NavigationMenuLink
                   asChild
                   className={navigationMenuTriggerStyle({
-                    className: "flex-row",
+                    className: "flex-row bg-transparent",
                   })}
                 >
                   <Link href="/about">
@@ -90,6 +94,8 @@ export function Header() {
           </div>
         </div>
       </div>
+
+      <Guidelines />
     </header>
   );
 }

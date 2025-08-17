@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque } from "next/font/google";
 
 import { ThemeProvider } from "@/components/theme-provider";
+import { Guidelines } from "@/components/guidelines";
+
 import { Header } from "@/widgets/header";
 
 import "@/assets/css/globals.css";
@@ -34,10 +36,10 @@ export default function RootLayout({
           <Header />
 
           {/* Entire Content */}
-
           {children}
 
-          <div className="fixed inset-0 -z-10 max-w-screen-xl mx-auto border-x pointer-events-none border-dashed" />
+          {/* Guidelines / Rulers on the entire page */}
+          <Guidelines isFixed />
         </ThemeProvider>
       </body>
     </html>
