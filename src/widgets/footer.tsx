@@ -26,7 +26,7 @@ const navigation = [
 
 export function Footer() {
   return (
-    <footer data-widget="footer" className="py-10">
+    <footer data-widget="footer" className="py-10 mt-auto">
       <div className="container">
         <div className="flex items-center justify-between gap-6 mb-4">
           <div className="flex items-center md:justify-start justify-center gap-x-6 gap-y-4 flex-wrap">
