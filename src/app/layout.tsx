@@ -7,6 +7,7 @@ import { Guidelines } from "@/components/guidelines";
 import { Header } from "@/widgets/header";
 
 import "@/assets/css/globals.css";
+import { Footer } from "@/widgets/footer";
 
 const bricolageGrotesque = Bricolage_Grotesque({
   variable: "--font-bricolage-grotesque",
@@ -37,6 +38,9 @@ export default function RootLayout({
 
           {/* Entire Content */}
           {children}
+
+          {/* Footer */}
+          <Footer />
 
           {/* Guidelines / Rulers on the entire page */}
           <Guidelines isFixed />

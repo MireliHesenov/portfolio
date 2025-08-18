@@ -15,7 +15,7 @@ function BaseListItem({
   return (
     <Comp
       className={cn(
-        "flex items-center gap-4 py-4 px-4 rounded-lg",
+        "flex flex-col md:flex-row md:items-center md:gap-4 py-4 px-4 rounded-lg",
         "[&a]:hover:bg-accent [&button]:hover:bg-accent",
         className
       )}

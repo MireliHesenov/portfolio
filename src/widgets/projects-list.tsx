@@ -45,6 +45,7 @@ export function ProjectsList() {
       link: "https://example.com",
     },
   ];
+
   return (
     <section data-widget="projects-list" className="py-16">
       <div className="container">

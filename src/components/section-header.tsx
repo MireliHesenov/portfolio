@@ -2,7 +2,13 @@ import { cn } from "@/lib/utils";
 
 function SectionHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
-    <div className={cn("flex items-start gap-6 mb-6", className)} {...props} />
+    <div
+      className={cn(
+        "flex md:flex-row flex-col items-start gap-1 md:gap-6 mb-6",
+        className
+      )}
+      {...props}
+    />
   );
 }
 
@@ -42,7 +48,12 @@ function SectionHeaderActions({
   className,
   ...props
 }: React.ComponentProps<"div">) {
-  return <div className={cn("leading-[36px]", className)} {...props} />;
+  return (
+    <div
+      className={cn("leading-[36px] [&_a]:px-0", className)}
+      {...props}
+    />
+  );
 }
 
 export {
