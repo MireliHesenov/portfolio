@@ -29,6 +29,21 @@ export function ProjectsList() {
       image: "https://via.placeholder.com/150",
       link: "https://example.com",
     },
+    {
+      id: "3",
+      title: "🎇 CodeScreen",
+      description: "Create images of your source code",
+      image: "https://via.placeholder.com/150",
+      link: "https://example.com",
+    },
+    {
+      id: "4",
+      title: "👻React Ghosta",
+      description:
+        "Lightweight, customizable and beautiful trigger based Alert/Popup library.",
+      image: "https://via.placeholder.com/150",
+      link: "https://example.com",
+    },
   ];
   return (
     <section data-widget="projects-list" className="py-16">

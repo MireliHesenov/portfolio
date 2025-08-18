@@ -30,7 +30,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
       </h3>
       <p className="text-sm text-muted-foreground">{project.description}</p>
 
-      <div className="flex items-center gap-2 mt-1">
+      <div className="flex items-center gap-2 mt-auto">
         <Button asChild size="sm" variant="outline">
           <a href="#">Demo</a>
         </Button>
