@@ -3,7 +3,7 @@ import { configs } from "@/lib/configs";
 export function SocialLinks() {
   return (
     <ul className="flex items-center gap-4">
-      {configs.socials.map((social) => (
+      {Object.values(configs.socials).map((social) => (
         <li key={social.name}>
           <a
             href={social.url}
