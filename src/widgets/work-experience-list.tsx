@@ -103,7 +103,11 @@ export function WorkExperienceList() {
           <SectionHeaderActions>
             {configs.socials.linkedin?.url && (
               <Button asChild variant="link">
-                <a href={configs.socials.linkedin.url}>
+                <a
+                  href={configs.socials.linkedin.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   View All on LinkedIn
                   <ArrowRightIcon />
                 </a>
@@ -113,7 +117,7 @@ export function WorkExperienceList() {
         </SectionHeader>
 
         {/* List */}
-        <BaseList className="grid grid-cols-2 gap-x-6">
+        <BaseList className="grid md:grid-cols-2 gap-x-6">
           {data.map((item) => {
             return (
               <BaseListItem key={item.id}>
@@ -127,7 +131,7 @@ export function WorkExperienceList() {
                 </BaseListItemContent>
 
                 <BaseListItemSlot>
-                  <time className="text-muted-foreground">
+                  <time className="text-muted-foreground text-sm">
                     {item.startDate} - {item.endDate}
                   </time>
                 </BaseListItemSlot>
