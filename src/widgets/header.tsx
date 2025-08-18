@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { configs } from "@/lib/configs";
+
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -11,9 +13,31 @@ import { DecryptedText } from "@/components/ui/decrypted-text";
 import { Guidelines } from "@/components/guidelines";
 
 import ThemeToggle from "@/widgets/theme-toggle";
-import { configs } from "@/lib/configs";
 
 export function Header() {
+  const navigation = [
+    {
+      label: "Home",
+      href: "/",
+      icon: "🏠",
+    },
+    {
+      label: "Projects",
+      href: "/projects",
+      icon: "👾",
+    },
+    {
+      label: "Blog",
+      href: "/blog",
+      icon: "📝",
+    },
+    {
+      label: "About",
+      href: "/about",
+      icon: "💾",
+    },
+  ];
+
   return (
     <header
       data-widget="header"
@@ -35,57 +59,21 @@ export function Header() {
 
           <NavigationMenu>
             <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  asChild
-                  className={navigationMenuTriggerStyle({
-                    className: "flex-row bg-transparent",
-                  })}
-                >
-                  <Link href="/">
-                    <span className="mr-1 text-lg">🏠</span> Home
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  asChild
-                  className={navigationMenuTriggerStyle({
-                    className: "flex-row bg-transparent",
-                  })}
-                >
-                  <Link href="/projects">
-                    <span className="mr-1 text-lg">👾</span> Projects
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  asChild
-                  className={navigationMenuTriggerStyle({
-                    className: "flex-row bg-transparent",
-                  })}
-                >
-                  <Link href="/blog">
-                    <span className="mr-1 text-lg">📝</span> Blog
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  asChild
-                  className={navigationMenuTriggerStyle({
-                    className: "flex-row bg-transparent",
-                  })}
-                >
-                  <Link href="/about">
-                    <span className="mr-1 text-lg">💾</span> About
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
+              {navigation.map((item) => (
+                <NavigationMenuItem key={item.label}>
+                  <NavigationMenuLink
+                    asChild
+                    className={navigationMenuTriggerStyle({
+                      className: "flex-row bg-transparent",
+                    })}
+                  >
+                    <Link href={item.href}>
+                      <span className="mr-1 text-lg">{item.icon}</span>{" "}
+                      {item.label}
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
             </NavigationMenuList>
           </NavigationMenu>
 
