@@ -1,11 +1,13 @@
+import { CoffeeIcon } from "@/assets/icons/coffee.icon";
+import { EnvelopeIcon } from "@/assets/icons/envelope.icon";
 import { GithubIcon } from "@/assets/icons/github.icon";
 import { LinkedinIcon } from "@/assets/icons/linkedin.icon";
-import { CoffeeIcon } from "lucide-react";
 
 export const configs = {
   app: {
     name: process.env.NEXT_PUBLIC_APP_NAME || ">_",
     author: process.env.NEXT_PUBLIC_APP_AUTHOR,
+    author_email: process.env.NEXT_PUBLIC_APP_AUTHOR_EMAIL,
     description: process.env.NEXT_PUBLIC_APP_DESCRIPTION,
   },
 
@@ -19,6 +21,11 @@ export const configs = {
       name: "GitHub",
       icon: GithubIcon,
       url: "https://github.com/firuzcanh",
+    },
+    email: {
+      name: "E-mail",
+      icon: EnvelopeIcon,
+      url: `mailto:${process.env.NEXT_PUBLIC_APP_AUTHOR_EMAIL}`,
     },
     coffee: {
       name: "Buy me a coffee",
