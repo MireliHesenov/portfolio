@@ -2,7 +2,7 @@ import { configs } from "@/lib/configs";
 
 export function SocialLinks() {
   return (
-    <ul className="flex items-center gap-4">
+    <ul className="inline-flex items-center gap-4">
       {Object.values(configs.socials).map((social) => (
         <li key={social.name}>
           <a
