@@ -2,6 +2,8 @@ import Link from "next/link";
 
 import { configs } from "@/lib/configs";
 
+import { Guidelines } from "@/components/guidelines";
+import { DecryptedText } from "@/components/ui/decrypted-text";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -9,44 +11,61 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { DecryptedText } from "@/components/ui/decrypted-text";
-import { Guidelines } from "@/components/guidelines";
+import {
+  BaseList,
+  BaseListItem,
+  BaseListItemContent,
+  BaseListItemTitle,
+} from "@/components/ui/base-list";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { MenuIcon, XIcon } from "lucide-react";
 
-import ThemeToggle from "@/widgets/theme-toggle";
+import { ThemeToggle } from "@/widgets/theme-toggle";
+import HeaderMobileNavigation from "./header-mobile-navigation";
+
+const navigation = [
+  {
+    label: "About",
+    href: "/about",
+    icon: "💾",
+  },
+  {
+    label: "Projects",
+    href: "/projects",
+    icon: "👾",
+  },
+  {
+    label: "Portfolio",
+    href: "/portfolio",
+    icon: "🏗️",
+  },
+  {
+    label: "Blog",
+    href: "/blog",
+    icon: "📝",
+  },
+];
 
 export function Header() {
-  const navigation = [
-    {
-      label: "Home",
-      href: "/",
-      icon: "🏠",
-    },
-    {
-      label: "Projects",
-      href: "/projects",
-      icon: "👾",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-      icon: "📝",
-    },
-    {
-      label: "About",
-      href: "/about",
-      icon: "💾",
-    },
-  ];
-
   return (
     <header
       data-widget="header"
-      className="sticky top-0 z-20 bg-background/60 backdrop-blur-md border-b"
+      className="sticky top-0 z-20 bg-background/60 backdrop-blur-md border-b pointer-events-auto"
     >
       <div className="container">
         <div className="grid grid-cols-faf items-center h-18">
           <div>
-            <Link href="/" className="text-2xl font-bold font-leading">
+            <Link
+              href="/"
+              className="text-xl md:text-2xl font-bold font-leading"
+            >
               <DecryptedText
                 text={configs.app.name}
                 animateOn="hover"
@@ -57,8 +76,9 @@ export function Header() {
             </Link>
           </div>
 
+          {/* Navigation menu on desktop */}
           <NavigationMenu>
-            <NavigationMenuList>
+            <NavigationMenuList className="md:flex hidden">
               {navigation.map((item) => (
                 <NavigationMenuItem key={item.label}>
                   <NavigationMenuLink
@@ -77,8 +97,10 @@ export function Header() {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <div className="ml-auto">
+          <div className="flex items-center gap-2 ml-auto">
             <ThemeToggle />
+
+            <HeaderMobileNavigation navigation={navigation} />
           </div>
         </div>
       </div>
