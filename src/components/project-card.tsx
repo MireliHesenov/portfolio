@@ -24,22 +24,44 @@ export function ProjectCardList({
 type ProjectCardProps = {
   project: Partial<Project>;
   className?: string;
+  showArticleButton?: boolean;
 };
 
-export function ProjectCard({ project, className }: ProjectCardProps) {
+export function ProjectCard({
+  project,
+  showArticleButton = true,
+  className,
+}: ProjectCardProps) {
   return (
     <Card className={cn("gap-2 p-6", className)}>
       <h3 className="text-lg font-semibold">
-        <Link href={`/projects/${project.id}`} className="link dark:text-link">
+        <Link
+          href={`/projects/${project.slug}`}
+          {...(!showArticleButton && {
+            href: project.demo ? project.demo : "#",
+            target: "_blank",
+          })}
+          className="link dark:text-link"
+        >
           {project.title}
         </Link>
       </h3>
       <p className="text-sm text-muted-foreground">{project.description}</p>
 
-      <div className="flex items-center gap-2 mt-auto">
-        <Button asChild size="sm" variant="outline">
-          <a href="#">Demo</a>
-        </Button>
+      <div className="flex items-center gap-2 mt-auto empty:hidden">
+        {showArticleButton ? (
+          <Button asChild size="sm" variant="outline">
+            <Link href={`/projects/${project.slug}`}>Article</Link>
+          </Button>
+        ) : null}
+
+        {project.demo ? (
+          <Button asChild size="sm" variant="outline">
+            <a href={project.demo} target="_blank" rel="noopener noreferrer">
+              Demo
+            </a>
+          </Button>
+        ) : null}
       </div>
     </Card>
   );

@@ -1,6 +1,6 @@
-import type { Project } from "@/types/project.type";
-
 import Link from "next/link";
+
+import { ProjectService } from "@/services/project.service";
 
 import { ArrowRightIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,37 +14,13 @@ import {
 import { ProjectCardList, ProjectCard } from "@/components/project-card";
 
 export function ProjectsList() {
-  const projects: Project[] = [
-    {
-      id: "1",
-      title: "🎉 AlertBox",
-      description: "React native alert & prompt utility",
-      image: "https://via.placeholder.com/150",
-      link: "https://example.com",
-    },
-    {
-      id: "2",
-      title: "🚀 Notifly",
-      description: "A custom notification component for react native",
-      image: "https://via.placeholder.com/150",
-      link: "https://example.com",
-    },
-    {
-      id: "3",
-      title: "🎇 CodeScreen",
-      description: "Create images of your source code",
-      image: "https://via.placeholder.com/150",
-      link: "https://example.com",
-    },
-    {
-      id: "4",
-      title: "👻React Ghosta",
-      description:
-        "Lightweight, customizable and beautiful trigger based Alert/Popup library.",
-      image: "https://via.placeholder.com/150",
-      link: "https://example.com",
-    },
-  ];
+  const data = ProjectService.findAll();
+
+  const projects = data.map(({ metadata, slug, content }) => ({
+    slug,
+    content,
+    ...metadata,
+  }));
 
   return (
     <section data-widget="projects-list" className="py-16">
@@ -70,7 +46,11 @@ export function ProjectsList() {
         {/* Project List */}
         <ProjectCardList>
           {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard
+              key={project.slug}
+              project={project}
+              showArticleButton={!!project.content}
+            />
           ))}
         </ProjectCardList>
       </div>

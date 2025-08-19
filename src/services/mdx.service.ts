@@ -26,8 +26,16 @@ export const MdxService = {
   },
 
   readMDXFile(filePath: string) {
-    const rawContent = fs.readFileSync(filePath, "utf-8");
-    return this.parseFrontmatter(rawContent);
+    try {
+      const rawContent = fs.readFileSync(filePath, "utf-8");
+      return this.parseFrontmatter(rawContent);
+    } catch {
+      return {
+        content: null,
+        metadata: null,
+        filename: null,
+      };
+    }
   },
 
   getMDXData(dir: string) {

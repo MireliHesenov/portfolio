@@ -1,0 +1,112 @@
+---
+title: "🎉 Alertbox"
+publishedAt: "2023-02-26"
+description: "React native alert & prompt utility"
+author: "Firuzcan Haciyev"
+demo: "https://react-native-alertbox.vercel.app/"
+---
+
+<h1 align="center" className="text-center">React Native AlertBox</h1>
+
+<div align="center" className="text-lg">
+  <strong>AlertBox</strong> it is a React Native alert & prompt module, working both on Android and iOS platform.<br /><br />
+  <img src="https://i.imgur.com/IUbVRGv.png" alt="" width="60%" className="border-0 w-[60%] min-w-[240px] max-w-full" />
+</div>
+
+## Installation
+
+```bash
+npm install --save react-native-alertbox
+```
+
+## Usage
+
+First you have to add AlertBox to App
+
+```tsx:App.tsx
+import React from 'react';
+import {AlertBox} from 'react-native-alertbox';
+
+export default function App() {
+  return (
+    <View>
+      {/* ... */}
+      <AlertBox />
+    </View>
+  );
+}
+```
+
+<br/>
+After that just you need to call `fire` methods from anywhere in your app. 🎉
+
+### Show some message
+
+```jsx
+import React from 'react';
+import {Button} from 'react-native';
+import {fire} from 'react-native-alertbox';
+
+export default function ExampleScreen() {
+  return (
+    <Button
+      title="Click Me"
+      onPress={() => fire({title: 'Title', message: 'Some text message'})}
+    />
+  );
+}
+```
+
+If you need to use only one screen, you can instance your AlertBox Component with a ref ID.
+
+```jsx
+import React, {useRef} from 'react';
+import {Button, View} from 'react-native';
+import {AlertBox} from 'react-native-alertbox';
+
+export default function ExampleScreen() {
+  const ref = useRef();
+  return (
+    <View>
+      <AlertBox />
+      <Button
+        title="Click Me"
+        onPress={() => ref.current.fire({title: 'Title', message: 'Some text message'})}
+      />
+    </View>
+  );
+}
+```
+
+The <b>fire</b> method takes _title, message, actions, fields_ parameters. Let's look at the advanced example where we use these parameters.
+
+```javascript
+fire({
+  title: 'Username',
+  message: 'Please enter your username and then click approve',
+  // buttons
+  actions: [
+    {
+      text: 'Close',
+      style: 'cancel',
+    },
+    {
+      text: 'Approve',
+      onPress: (data) => console.log(data), // It is an object that holds fields data
+    },
+  ],
+  // fields
+  fields: [
+    {
+      name: 'username',
+      placeholder: 'Enter username',
+    },
+  ],
+});
+```
+<br/>
+<img src="https://media0.giphy.com/media/NCzLYpojjyfLA1EjTL/giphy.gif" alt="" width="40%" className="border-0 w-[40%] min-w-[240px] max-w-full" />
+
+## License
+
+[MIT](./LICENSE)
