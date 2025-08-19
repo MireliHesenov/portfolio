@@ -1,0 +1,53 @@
+:root {
+  --code-background: #1e1e1e;
+  --code-foreground: #d4d4d4;
+  --code-line-number-color: #858585;
+}
+
+.remark-code-container {
+  @apply grid bg-neutral-100 dark:bg-neutral-800 text-card-foreground border border-border rounded-lg overflow-clip p-1;
+
+  & ~ & {
+    @apply mt-6;
+  }
+
+  & pre {
+    @apply !my-0 py-2 px-4 overflow-x-auto;
+  }
+
+  & pre,
+  & pre code {
+    @apply bg-[var(--code-background)] text-[var(--code-foreground)] hyphens-none leading-[1.2] break-normal whitespace-pre text-left;
+    direction: ltr;
+    word-spacing: normal;
+    tab-size: 2;
+  }
+
+  & pre > code {
+    @apply float-left min-w-full;
+  }
+}
+
+.remark-code-title {
+  @apply rounded-t-lg text-sm px-3 py-2;
+}
+
+.code-line {
+  @apply inline-block min-w-full px-3 -mx-3 border-l-4 border-transparent;
+}
+
+.code-line.inserted {
+  @apply bg-green-900/70;
+}
+
+.code-line.deleted {
+  @apply bg-red-900/70;
+}
+
+.highlighted-code-line {
+  @apply bg-blue-900/60 border-l-4 border-blue-500/70;
+}
+
+.numbered-code-line::before {
+  @apply inline-block content-[attr(data-line-number)] w-4 mr-4 -ml-2 text-right text-[var(--code-line-number-color)];
+}
