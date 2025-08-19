@@ -28,7 +28,7 @@ function BlogPostCard({ blogPost, className }: BlogPostCardProps) {
         className
       )}
     >
-      <h3 className="text-base font-semibold link dark:text-yellow-200">
+      <h3 className="text-base font-semibold link dark:text-link group-hover:text-link">
         {blogPost.title}
       </h3>
       <time className="text-base text-muted-foreground">

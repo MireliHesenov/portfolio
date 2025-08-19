@@ -11,7 +11,13 @@ export function ProjectCardList({
   ...props
 }: React.ComponentProps<"div">) {
   return (
-    <div className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4", className)} {...props} />
+    <div
+      className={cn(
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4",
+        className
+      )}
+      {...props}
+    />
   );
 }
 
@@ -23,8 +29,8 @@ type ProjectCardProps = {
 export function ProjectCard({ project, className }: ProjectCardProps) {
   return (
     <Card className={cn("gap-2 p-6", className)}>
-      <h3 className="text-lg font-semibold text-highlight">
-        <Link href={`/projects/${project.id}`} className="link">
+      <h3 className="text-lg font-semibold">
+        <Link href={`/projects/${project.id}`} className="link dark:text-link">
           {project.title}
         </Link>
       </h3>
