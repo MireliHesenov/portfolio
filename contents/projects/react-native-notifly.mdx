@@ -4,3 +4,173 @@ publishedAt: "2020-11-04"
 description: "A custom notification component for react native"
 author: "Firuzcan Haciyev"
 ---
+
+<img
+  src="https://i.imgur.com/L2pxZlUl.png"
+  alt="Notifly"
+  width="50%"
+  className="w-[50%] min-w-[240px] max-w-full mx-auto block border-0 rounded-lg mb-12"
+/>
+
+<h1 className="text-center">React Native Notifly</h1>
+
+<div className="text-center text-lg">
+  Notifly allows you to show application notifications within the application
+  and with your own components
+</div>
+
+## Installation
+
+```bash
+npm install --save react-native-notifly
+```
+
+## Usage
+
+First you have to add Notifly to App
+
+```jsx:App.tsx
+import { Notifly } from "react-native-notifly";
+
+export default function App() {
+  return (
+    <View>
+      {/* ... */}
+      <Notifly />
+    </View>
+  );
+}
+```
+
+<br />
+After that just you need to call `fire` methods from anywhere in your app. 🎉
+
+### Show notification
+
+```jsx
+import { Button } from "react-native";
+import { fire } from "react-native-notifly";
+
+export default function ExampleScreen() {
+  return (
+    <Button
+      title="Fire Notification"
+      onPress={() =>
+        fire({
+          title: "Title",
+          message: "Some text message",
+          avatar: { uri: "image url" },
+          options: {
+            behaviour: "swipe",
+            duration: 2000,
+          },
+          onPress: (args) => console.log(args),
+        })
+      }
+    />
+  );
+}
+```
+
+<br />
+You can use Notifly with ***your own components***. See below example
+
+```jsx
+export default function ExampleScreen() {
+  return (
+    <Button
+      title="Fire Notification"
+      onPress={() =>
+        fire({
+          title: "Title",
+          message: "Some text message",
+          component: (args) => (
+            <View>
+              <Text>{args.title}</Text>
+            </View>
+          ),
+        })
+      }
+    />
+  );
+}
+```
+
+### Fire Props
+
+<table className="w-full">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>title</td>
+      <td>none</td>
+      <td>Title of notification</td>
+    </tr>
+    <tr>
+      <td>message</td>
+      <td>none</td>
+      <td>Message of notification</td>
+    </tr>
+    <tr>
+      <td>avatar</td>
+      <td>none</td>
+      <td>Avatar icon of notification</td>
+    </tr>
+    <tr>
+      <td>onPress</td>
+      <td>none</td>
+      <td>onPress callback for notification press</td>
+    </tr>
+    <tr>
+      <td>component</td>
+      <td>none</td>
+      <td>Set a your custom component</td>
+    </tr>
+    <tr>
+      <td>options</td>
+      <td>FireOptions</td>
+      <td>Notification options</td>
+    </tr>
+  </tbody>
+</table>
+
+### FireOptions
+
+<table className="w-full">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>behaviour</td>
+      <td>swipe</td>
+      <td>
+        The behaviour prop set the behaviour of notification. You can use one of
+        them. <code>swipe</code>, <code>clear</code>, <code>over</code>{" "}
+      </td>
+    </tr>
+    <tr>
+      <td>duration</td>
+      <td>2000</td>
+      <td>The duration prop set the notification duration.</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<div align="center">
+  <img
+    src="https://media2.giphy.com/media/C8lfq0sR0Vk2BERd98/giphy.gif"
+    alt="Notifly"
+    className="w-[400px] mx-auto block"
+  />
+</div>
