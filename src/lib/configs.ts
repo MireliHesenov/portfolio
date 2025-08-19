@@ -7,6 +7,7 @@ export const configs = {
   app: {
     name: process.env.NEXT_PUBLIC_APP_NAME || ">_",
     author: process.env.NEXT_PUBLIC_APP_AUTHOR,
+    author_name: process.env.NEXT_PUBLIC_APP_AUTHOR_NAME,
     author_email: process.env.NEXT_PUBLIC_APP_AUTHOR_EMAIL,
     description: process.env.NEXT_PUBLIC_APP_DESCRIPTION,
   },
