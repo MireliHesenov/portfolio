@@ -1,12 +1,31 @@
+import { type Metadata } from "next";
+import { notFound } from "next/navigation";
+
 import { CustomMDXRemote } from "@/components/mdx-remote";
 import { ProjectService } from "@/services/project.service";
-import { notFound } from "next/navigation";
 
 type ProjectDetailPageProps = {
   params: Promise<{
     slug: string;
   }>;
 };
+
+export async function generateMetadata({
+  params: _params,
+}: ProjectDetailPageProps): Promise<Metadata> {
+  const params = await _params;
+  const project = ProjectService.findBySlug(params.slug);
+
+  if (!project.metadata) {
+    return notFound();
+  }
+
+  return {
+    title: project.metadata.title,
+    description: project.metadata.description,
+    authors: [{ name: project.metadata.author }],
+  };
+}
 
 export default async function ProjectDetailPage({
   params: _params,
