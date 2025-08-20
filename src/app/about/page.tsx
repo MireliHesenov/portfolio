@@ -8,17 +8,22 @@ import { CustomMDXRemote } from "@/components/mdx-remote";
 
 export function generateMetadata(): Metadata {
   const data = PageService.findBySlug("about-me");
+
+  if (!data?.metadata) {
+    return notFound();
+  }
+
   return {
-    title: data?.metadata.title,
-    description: data?.metadata.description,
-    authors: [{ name: data?.metadata.author }],
+    title: data.metadata.title,
+    description: data.metadata.description,
+    authors: [{ name: data.metadata.author }],
   };
 }
 
 export default function AboutPage() {
   const data = PageService.findBySlug("about-me");
 
-  if (!data) {
+  if (!data?.content) {
     return notFound();
   }
 
