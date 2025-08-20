@@ -50,7 +50,7 @@ export default async function ProjectsPage() {
           </PageHeaderDescription>
         </PageHeader>
 
-        <ProjectCardList>
+        <ProjectCardList className="lg:grid-cols-2">
           {projects.map((project) => {
             return (
               <ProjectCard

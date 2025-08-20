@@ -33,25 +33,42 @@ export function ProjectCard({
   className,
 }: ProjectCardProps) {
   return (
-    <Card className={cn("gap-2 p-6", className)}>
-      <h3 className="text-lg font-semibold">
-        <Link
-          href={`/projects/${project.slug}`}
-          {...(!showArticleButton && {
-            href: project.demo ? project.demo : "#",
-            target: "_blank",
-          })}
-          className="link dark:text-link"
-        >
-          {project.title}
-        </Link>
-      </h3>
-      <p className="text-sm text-muted-foreground">{project.description}</p>
+    <Card className={cn("gap-4 p-6", className)}>
+      {project.publishedAt ? (
+        <time className="text-sm text-muted-foreground">
+          {project.publishedAt.split("-").at(0)}
+        </time>
+      ) : null}
+
+      <div className="space-y-2">
+        <h3 className="text-lg font-semibold">
+          <Link
+            href={`/projects/${project.slug}`}
+            {...(!showArticleButton && {
+              href: project.demo ? project.demo : "#",
+              target: "_blank",
+            })}
+            className="link dark:text-link"
+          >
+            {project.title}
+          </Link>
+        </h3>
+
+        <p className="text-sm text-muted-foreground">{project.description}</p>
+      </div>
 
       <div className="flex items-center gap-2 mt-auto empty:hidden">
         {showArticleButton ? (
           <Button asChild size="sm" variant="outline">
             <Link href={`/projects/${project.slug}`}>Article</Link>
+          </Button>
+        ) : null}
+
+        {project.source ? (
+          <Button asChild size="sm" variant="outline">
+            <a href={project.source} target="_blank" rel="noopener noreferrer">
+              Source
+            </a>
           </Button>
         ) : null}
 

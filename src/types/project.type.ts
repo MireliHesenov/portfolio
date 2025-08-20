@@ -2,7 +2,8 @@ export type Project = {
   slug: string;
   title: string;
   description: string;
-  demo?: string;
-  publishedAt: string;
   author: string;
+  publishedAt: string;
+  demo?: string;
+  source?: string;
 };

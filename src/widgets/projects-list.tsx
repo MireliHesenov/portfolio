@@ -44,7 +44,11 @@ export function ProjectsList() {
           {projects.map((project) => (
             <ProjectCard
               key={project.slug}
-              project={{ ...project.metadata, slug: project.slug }}
+              project={{
+                ...project.metadata,
+                slug: project.slug,
+                source: undefined,
+              }}
               showArticleButton={!!project.content}
             />
           ))}
