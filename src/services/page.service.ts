@@ -13,7 +13,7 @@ export const PageService = {
   },
 
   findBySlug(slug: string) {
-    return MdxService.readMDXFile(
+    return MdxService.readMDXFile<Page>(
       path.join(process.cwd(), "contents/pages", `${slug}.mdx`)
     );
   },
