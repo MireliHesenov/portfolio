@@ -14,13 +14,9 @@ import {
 import { ProjectCardList, ProjectCard } from "@/components/project-card";
 
 export function ProjectsList() {
-  const data = ProjectService.findAll({ pagination: { page: 1, limit: 6 } });
-
-  const projects = data.map(({ metadata, slug, content }) => ({
-    slug,
-    content,
-    ...metadata,
-  }));
+  const projects = ProjectService.findAll({
+    pagination: { page: 1, limit: 6 },
+  });
 
   return (
     <section data-widget="projects-list" className="py-16">
@@ -48,7 +44,7 @@ export function ProjectsList() {
           {projects.map((project) => (
             <ProjectCard
               key={project.slug}
-              project={project}
+              project={{ ...project.metadata, slug: project.slug }}
               showArticleButton={!!project.content}
             />
           ))}

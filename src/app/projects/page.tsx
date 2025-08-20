@@ -1,3 +1,5 @@
+import { type Metadata } from "next";
+
 import { ProjectService } from "@/services/project.service";
 
 import {
@@ -12,6 +14,13 @@ import {
   EmptyDescription,
   EmptyTitle,
 } from "@/components/ui/empty";
+
+export function generateMetadata(): Metadata {
+  return {
+    title: "Projects",
+    description: "Open-source projects I&apos;ve worked on.",
+  };
+}
 
 export default async function ProjectsPage() {
   const projects = ProjectService.findAll();
@@ -50,6 +59,7 @@ export default async function ProjectsPage() {
                   ...project.metadata,
                   slug: project.slug,
                 }}
+                showArticleButton={!!project.content}
               />
             );
           })}
