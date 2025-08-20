@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { ArticleService } from "@/services/article.service";
 
-import { ArticleCardList, ArticleCard } from "@/components/article-card";
+import { ArticleCard } from "@/components/article-card";
 import { GuidelinesCornerPlus } from "@/components/guidelines";
 import {
   SectionHeader,
@@ -39,14 +39,14 @@ export function LatestArticles() {
         </SectionHeader>
 
         {/* Blog Post List */}
-        <ArticleCardList>
+        <div className="grid md:grid-cols-2 gap-x-6 -mx-4">
           {articles?.map((article) => (
             <ArticleCard
               key={article.slug}
               article={{ ...article.metadata, slug: article.slug }}
             />
           ))}
-        </ArticleCardList>
+        </div>
       </div>
 
       <GuidelinesCornerPlus />
