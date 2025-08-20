@@ -11,7 +11,7 @@ import {
   SectionHeaderDescription,
   SectionHeaderTitle,
 } from "@/components/section-header";
-import { ProjectCardList, ProjectCard } from "@/components/project-card";
+import { ProjectCard } from "@/components/project-card";
 
 export function ProjectsList() {
   const projects = ProjectService.findAll({
@@ -40,7 +40,7 @@ export function ProjectsList() {
         </SectionHeader>
 
         {/* Project List */}
-        <ProjectCardList>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {projects.map((project) => (
             <ProjectCard
               key={project.slug}
@@ -52,7 +52,7 @@ export function ProjectsList() {
               showSourceButton={false}
             />
           ))}
-        </ProjectCardList>
+        </div>
       </div>
     </section>
   );

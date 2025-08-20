@@ -7,13 +7,14 @@ import {
   PageHeaderDescription,
   PageHeaderTitle,
 } from "@/components/page-header";
-import { ProjectCard, ProjectCardList } from "@/components/project-card";
 import {
   Empty,
   EmptyContent,
   EmptyDescription,
   EmptyTitle,
 } from "@/components/ui/empty";
+
+import { ProjectsList } from "./_components/projects-list";
 
 export function generateMetadata(): Metadata {
   return {
@@ -50,20 +51,7 @@ export default async function ProjectsPage() {
           </PageHeaderDescription>
         </PageHeader>
 
-        <ProjectCardList className="lg:grid-cols-2">
-          {projects.map((project) => {
-            return (
-              <ProjectCard
-                key={project.slug}
-                project={{
-                  ...project.metadata,
-                  slug: project.slug,
-                }}
-                showArticleButton={!!project.content}
-              />
-            );
-          })}
-        </ProjectCardList>
+        <ProjectsList projects={projects} />
       </div>
     </main>
   );
