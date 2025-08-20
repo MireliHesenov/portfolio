@@ -7,7 +7,7 @@ import {
   PageHeaderDescription,
   PageHeaderTitle,
 } from "@/components/page-header";
-import { ArticleCard, ArticleCardList } from "@/components/article-card";
+import { ArticleCard } from "@/components/article-card";
 import {
   Empty,
   EmptyContent,
@@ -47,7 +47,7 @@ export default async function BlogPage() {
           </PageHeaderDescription>
         </PageHeader>
 
-        <ArticleCardList className="md:grid-cols-1">
+        <div className="grid md:grid-cols-1 gap-x-6 -mx-4">
           {articles.map((article) => {
             return (
               <ArticleCard
@@ -59,7 +59,7 @@ export default async function BlogPage() {
               />
             );
           })}
-        </ArticleCardList>
+        </div>
       </div>
     </main>
   );

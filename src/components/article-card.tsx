@@ -3,15 +3,6 @@ import type { Article } from "@/types/article.type";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-function ArticleCardList({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      className={cn("grid md:grid-cols-2 gap-x-6 -mx-4", className)}
-      {...props}
-    />
-  );
-}
-
 type ArticleCardProps = {
   article: Partial<Article>;
   className?: string;
@@ -35,4 +26,4 @@ function ArticleCard({ article, className }: ArticleCardProps) {
   );
 }
 
-export { ArticleCardList, ArticleCard };
+export { ArticleCard };
