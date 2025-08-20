@@ -125,6 +125,14 @@
   body {
     @apply bg-background text-foreground antialiased font-display flex flex-col min-h-screen;
   }
+
+  .prose a {
+    @apply underline-offset-4;
+  }
+
+  .prose li a {
+    @apply !text-primary hover:!text-link;
+  }
 }
 
 @utility container {
