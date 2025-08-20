@@ -1,42 +1,30 @@
 import type { Project } from "@/types/project.type";
 
-import Link from "next/link";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Button } from "./ui/button";
-
-export function ProjectCardList({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
-  return (
-    <div
-      className={cn(
-        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4",
-        className
-      )}
-      {...props}
-    />
-  );
-}
+import { StarIcon } from "lucide-react";
 
 type ProjectCardProps = {
   project: Partial<Project>;
-  className?: string;
   showArticleButton?: boolean;
   showSourceButton?: boolean;
+  stargazers?: number;
+  className?: string;
 };
 
 export function ProjectCard({
   project,
   showArticleButton = true,
   showSourceButton = true,
+  stargazers,
   className,
 }: ProjectCardProps) {
   const isExternal = !!(project.source || project.demo);
   return (
-    <Card className={cn("gap-4 p-6", className)}>
+    <Card className={cn("relative gap-4 p-6", className)}>
       {project.publishedAt ? (
         <time className="text-sm text-muted-foreground">
           {project.publishedAt.split("-").at(0)}
@@ -81,6 +69,20 @@ export function ProjectCard({
           </Button>
         ) : null}
       </div>
+
+      {stargazers ? (
+        <div className="absolute top-4 right-4">
+          <a
+            href={`${project.source}/stargazers`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-sm [&_svg]:text-yellow-500 link"
+          >
+            <StarIcon size={14} fill="currentColor" />
+            <span className="font-semibold">{stargazers}</span>
+          </a>
+        </div>
+      ) : null}
     </Card>
   );
 }
