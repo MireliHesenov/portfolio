@@ -25,13 +25,16 @@ type ProjectCardProps = {
   project: Partial<Project>;
   className?: string;
   showArticleButton?: boolean;
+  showSourceButton?: boolean;
 };
 
 export function ProjectCard({
   project,
   showArticleButton = true,
+  showSourceButton = true,
   className,
 }: ProjectCardProps) {
+  const isExternal = !!(project.source || project.demo);
   return (
     <Card className={cn("gap-4 p-6", className)}>
       {project.publishedAt ? (
@@ -43,11 +46,9 @@ export function ProjectCard({
       <div className="space-y-2">
         <h3 className="text-lg font-semibold">
           <Link
-            href={`/projects/${project.slug}`}
-            {...(!showArticleButton && {
-              href: project.demo ? project.demo : "#",
-              target: "_blank",
-            })}
+            href={project.source || project.demo || `/projects/${project.slug}`}
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
             className="link dark:text-link"
           >
             {project.title}
@@ -64,7 +65,7 @@ export function ProjectCard({
           </Button>
         ) : null}
 
-        {project.source ? (
+        {showSourceButton && project.source ? (
           <Button asChild size="sm" variant="outline">
             <a href={project.source} target="_blank" rel="noopener noreferrer">
               Source

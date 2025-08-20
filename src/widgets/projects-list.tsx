@@ -47,9 +47,9 @@ export function ProjectsList() {
               project={{
                 ...project.metadata,
                 slug: project.slug,
-                source: undefined,
               }}
               showArticleButton={!!project.content}
+              showSourceButton={false}
             />
           ))}
         </ProjectCardList>
