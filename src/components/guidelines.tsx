@@ -9,7 +9,7 @@ export function Guidelines({ className, isFixed = false }: GuidelinesProps) {
   return (
     <div
       className={cn(
-        "absolute inset-0 -z-10 max-w-screen-xl mx-auto border-x border-border border-dashed pointer-events-none",
+        "absolute inset-0 -z-10 max-w-screen-xl mx-auto border-x border-line border-dashed pointer-events-none",
         isFixed && "fixed",
         className
       )}
