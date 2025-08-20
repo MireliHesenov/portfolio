@@ -1,8 +1,8 @@
-import { BlogPost } from "@/types/blog.type";
-
 import Link from "next/link";
 
-import { BlogPostCardList, BlogPostCard } from "@/components/blog-post";
+import { ArticleService } from "@/services/article.service";
+
+import { ArticleCardList, ArticleCard } from "@/components/article-card";
 import { GuidelinesCornerPlus } from "@/components/guidelines";
 import {
   SectionHeader,
@@ -15,30 +15,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
 
 export function LatestArticles() {
-  const blogPosts = [
-    {
-      id: "1",
-      title: "Redesign: Version 7.0: Sidebars, light-dark, and Bluesky",
-      createdAt: new Date(),
-    },
-    {
-      id: "2",
-      title: "Enabling Apache ECharts in React for Data Visualization",
-      createdAt: new Date(),
-    },
-
-    {
-      id: "3",
-      title: "Redesign: Version 7.0: Sidebars, light-dark, and Bluesky",
-      createdAt: new Date(),
-    },
-
-    {
-      id: "4",
-      title: "Redesign: Version 7.0: Sidebars, light-dark, and Bluesky",
-      createdAt: new Date(),
-    },
-  ];
+  const articles = ArticleService.findAll();
 
   return (
     <section data-widget="latest-articles" className="relative py-16">
@@ -62,11 +39,14 @@ export function LatestArticles() {
         </SectionHeader>
 
         {/* Blog Post List */}
-        <BlogPostCardList>
-          {blogPosts.map((blogPost) => (
-            <BlogPostCard key={blogPost.id} blogPost={blogPost as BlogPost} />
+        <ArticleCardList>
+          {articles?.map((article) => (
+            <ArticleCard
+              key={article.slug}
+              article={{ ...article.metadata, slug: article.slug }}
+            />
           ))}
-        </BlogPostCardList>
+        </ArticleCardList>
       </div>
 
       <GuidelinesCornerPlus />
