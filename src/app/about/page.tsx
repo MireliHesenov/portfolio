@@ -30,7 +30,7 @@ export default function AboutPage() {
   return (
     <main className="py-6 md:py-12">
       <div className="container">
-        <div className="prose prose-lg prose-neutral dark:prose-invert">
+        <div className="prose prose-lg prose-neutral dark:prose-invert max-w-full">
           <CustomMDXRemote source={data.content} />
         </div>
       </div>
