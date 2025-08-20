@@ -12,7 +12,6 @@ function PageHeader({
   );
 }
 
-
 function PageHeaderTitle({
   children,
   className,
@@ -31,7 +30,10 @@ function PageHeaderDescription({
   ...props
 }: React.ComponentProps<"p">) {
   return (
-    <p className={cn("text-sm text-muted-foreground", className)} {...props}>
+    <p
+      className={cn("md:max-w-[80%] text-lg text-muted-foreground", className)}
+      {...props}
+    >
       {children}
     </p>
   );

@@ -14,7 +14,7 @@ import {
 import { ProjectCardList, ProjectCard } from "@/components/project-card";
 
 export function ProjectsList() {
-  const data = ProjectService.findAll();
+  const data = ProjectService.findAll({ pagination: { page: 1, limit: 6 } });
 
   const projects = data.map(({ metadata, slug, content }) => ({
     slug,

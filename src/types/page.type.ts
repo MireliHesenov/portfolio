@@ -1,8 +1,6 @@
-export type Project = {
-  slug: string;
+export type Page = {
   title: string;
   description: string;
-  demo?: string;
   publishedAt: string;
   author: string;
 };
