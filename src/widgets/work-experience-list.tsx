@@ -1,5 +1,7 @@
 import { configs } from "@/lib/configs";
 
+import { WorkExperienceService } from "@/services/work-experience.service";
+
 import {
   SectionHeader,
   SectionHeaderActions,
@@ -18,78 +20,7 @@ import {
 } from "@/components/ui/base-list";
 
 export function WorkExperienceList() {
-  const data = [
-    {
-      id: "1",
-      company:
-        "İqtisadiyyat Nazirliyi tabeiyində İnformasiya Texnologiyaları və Məlumat İdarəetmə Mərkəzi",
-      role: "Frontend Engineer",
-      startDate: "2023-07-01",
-      endDate: "Present",
-      location: "Azerbaijan",
-      type: "Full-time",
-      duration: "2 yrs 2 mos",
-    },
-    {
-      id: "2",
-      company: "Edumiro | AI-Powered Digital Learning Platform",
-      role: "Software Engineer",
-      startDate: "2024-06-01",
-      endDate: "2024-09-01",
-      location: "Azerbaijan",
-      type: "Freelance",
-      duration: "4 mos",
-      skills: "Software Development · Engineering",
-    },
-    {
-      id: "3",
-      company: "CRISP STUDIO",
-      role: "Full Stack Engineer",
-      startDate: "2022-08-01",
-      endDate: "2023-09-01",
-      location: "Spain",
-      type: "Full-time",
-      duration: "1 yr 2 mos",
-      skills:
-        "Apollo GraphQL · Redux.js · Git · TypeScript · Object-Oriented Programming (OOP)",
-    },
-    {
-      id: "4",
-      company: "Freelance",
-      role: "Full Stack Developer",
-      startDate: "2022-05-01",
-      endDate: "2022-08-01",
-      location: "Bakü, Baki, Azerbaycan",
-      type: "Freelance",
-      duration: "4 mos",
-      skills:
-        "Apollo GraphQL · Redux.js · Git · TypeScript · Object-Oriented Programming (OOP)",
-    },
-    {
-      id: "5",
-      company: "APPIDIA",
-      role: "Frontend Developer",
-      startDate: "2021-09-01",
-      endDate: "2022-05-01",
-      location: "Turkey",
-      type: "Full-time",
-      duration: "9 mos",
-      skills:
-        "Apollo GraphQL · Redux.js · Git · TypeScript · Object-Oriented Programming (OOP)",
-    },
-    {
-      id: "6",
-      company: "Devob Creative Agency",
-      role: "Frontend Developer",
-      startDate: "2018-06-01",
-      endDate: "2020-11-01",
-      location: "Bakü, Baki, Azerbaycan",
-      type: "Full-time",
-      duration: "2 yrs 6 mos",
-      skills:
-        "Apollo GraphQL · Redux.js · Git · Object-Oriented Programming (OOP)",
-    },
-  ];
+  const data = WorkExperienceService.findAll();
 
   return (
     <section data-widget="work-experience-list" className="relative py-16">
@@ -120,19 +51,21 @@ export function WorkExperienceList() {
         <BaseList className="grid md:grid-cols-2 gap-x-6">
           {data.map((item) => {
             return (
-              <BaseListItem key={item.id}>
+              <BaseListItem key={item.slug}>
                 <BaseListItemContent>
                   <BaseListItemTitle className="text-sm line-clamp-2">
-                    {item.company}
+                    {item.metadata?.title}
                   </BaseListItemTitle>
                   <BaseListItemDescription className="text-sm">
-                    {item.role}
+                    {item.metadata?.role || "Unknown"}
                   </BaseListItemDescription>
                 </BaseListItemContent>
 
                 <BaseListItemSlot>
                   <time className="text-muted-foreground text-sm">
-                    {item.startDate} - {item.endDate}
+                    {`${item.metadata?.startDate} - ${
+                      item.metadata?.endDate || "Present"
+                    }`}
                   </time>
                 </BaseListItemSlot>
               </BaseListItem>
