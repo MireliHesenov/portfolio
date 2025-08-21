@@ -11,24 +11,10 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import {
-  BaseList,
-  BaseListItem,
-  BaseListItemContent,
-  BaseListItemTitle,
-} from "@/components/ui/base-list";
-import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { MenuIcon, XIcon } from "lucide-react";
 
 import { ThemeToggle } from "@/widgets/theme-toggle";
-import HeaderMobileNavigation from "./header-mobile-navigation";
+
+import { HeaderMobileNavigation } from "./header-mobile-navigation";
 
 const navigation = [
   {

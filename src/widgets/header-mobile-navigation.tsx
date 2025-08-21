@@ -31,7 +31,7 @@ type HeaderMobileNavigationProps = {
   }[];
 };
 
-export default function HeaderMobileNavigation({
+export function HeaderMobileNavigation({
   navigation,
 }: HeaderMobileNavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
