@@ -40,6 +40,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/images/favicon.png" />
+        <script async src="https://scripts.simpleanalyticscdn.com/latest.js" />
       </head>
 
       <body className={`${bricolageGrotesque.variable}`}>
