@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { configs } from "@/lib/configs";
 
@@ -47,11 +48,19 @@ export function Header() {
     >
       <div className="container">
         <div className="grid grid-cols-faf items-center h-18">
-          <div>
+          <div className="flex">
             <Link
               href="/"
-              className="text-xl md:text-2xl font-bold font-leading"
+              className="inline-flex items-center gap-1 text-xl md:text-2xl font-bold font-leading"
             >
+              <Image
+                src="/images/favicon.gif"
+                alt="logo"
+                className="size-6"
+                width={24}
+                height={24}
+                draggable={false}
+              />
               <DecryptedText
                 text={configs.app.name}
                 animateOn="hover"
