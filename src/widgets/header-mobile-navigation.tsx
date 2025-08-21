@@ -48,6 +48,7 @@ export function HeaderMobileNavigation({
             animate={{ rotate: isOpen ? 90 : 0 }}
           >
             {isOpen ? <XIcon /> : <MenuIcon />}
+            <span className="sr-only">Menu</span>
           </motion.span>
         </Button>
       </SheetTrigger>
