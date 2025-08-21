@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 import { motion } from "motion/react";
@@ -22,6 +22,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { MenuIcon, XIcon } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 type HeaderMobileNavigationProps = {
   navigation: {
@@ -34,8 +35,14 @@ type HeaderMobileNavigationProps = {
 export function HeaderMobileNavigation({
   navigation,
 }: HeaderMobileNavigationProps) {
+  const pathname = usePathname();
+
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useIsMobile();
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   if (!isMobile) return null;
 
