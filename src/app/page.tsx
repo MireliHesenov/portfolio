@@ -20,8 +20,6 @@ export default function HomePage() {
       <Separator />
 
       <WorkExperienceList />
-
-      <Separator />
     </main>
   );
 }
