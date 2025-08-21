@@ -10,6 +10,16 @@ type ProjectDetailPageProps = {
   }>;
 };
 
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const projects = ProjectService.findAll();
+
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
+}
+
 export async function generateMetadata({
   params: _params,
 }: ProjectDetailPageProps): Promise<Metadata> {

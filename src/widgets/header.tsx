@@ -16,7 +16,7 @@ import { ThemeToggle } from "@/widgets/theme-toggle";
 
 import { HeaderMobileNavigation } from "./header-mobile-navigation";
 
-const navigation = [
+const navigation_menu = [
   {
     label: "About",
     href: "/about",
@@ -65,7 +65,7 @@ export function Header() {
           {/* Navigation menu on desktop */}
           <NavigationMenu>
             <NavigationMenuList className="md:flex hidden">
-              {navigation.map((item) => (
+              {navigation_menu.map((item) => (
                 <NavigationMenuItem key={item.label}>
                   <NavigationMenuLink
                     asChild
@@ -86,7 +86,7 @@ export function Header() {
           <div className="flex items-center gap-2 ml-auto">
             <ThemeToggle />
 
-            <HeaderMobileNavigation navigation={navigation} />
+            <HeaderMobileNavigation navigation={navigation_menu} />
           </div>
         </div>
       </div>
