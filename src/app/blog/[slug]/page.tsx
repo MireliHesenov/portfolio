@@ -50,7 +50,7 @@ export default async function ArticleDetailPage({
   return (
     <main className="py-6 md:py-12">
       <div className="container">
-        <div className="prose prose-invert prose-neutral prose-lg mx-auto">
+        <div className="prose dark:prose-invert prose-neutral prose-lg mx-auto">
           <CustomMDXRemote source={article.content} />
         </div>
       </div>

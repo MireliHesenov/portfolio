@@ -28,7 +28,7 @@ export function ThemeToggle() {
       >
         <MoonIcon className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" />
         <SunIcon className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2" />
-        <span className="sr-only">Toggle</span>
+        <span className="sr-only">Toggle theme</span>
       </motion.span>
     </Button>
   );
