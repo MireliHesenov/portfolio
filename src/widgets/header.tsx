@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 import { configs } from "@/lib/configs";
 
@@ -53,8 +52,10 @@ export function Header() {
               href="/"
               className="inline-flex items-center gap-1 text-xl md:text-2xl font-bold font-leading"
             >
-              <Image
-                src="/images/favicon.gif"
+              {/* TODO: Replace with Image component when it's supported by Next.js */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/bolt.avif"
                 alt="logo"
                 className="size-6"
                 width={24}
