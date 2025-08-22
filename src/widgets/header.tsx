@@ -53,15 +53,18 @@ export function Header() {
               className="inline-flex items-center gap-1 text-xl md:text-2xl font-bold font-leading"
             >
               {/* TODO: Replace with Image component when it's supported by Next.js */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/bolt.avif"
-                alt="logo"
-                className="size-6"
-                width={24}
-                height={24}
-                draggable={false}
-              />
+              <picture>
+                <source srcSet="/images/bolt.avif" type="image/avif" />
+                <source srcSet="/images/bolt.gif" type="image/gif" />
+                <img
+                  src="/images/bolt.png"
+                  alt="logo"
+                  className="size-6"
+                  width={24}
+                  height={24}
+                  draggable={false}
+                />
+              </picture>
               <DecryptedText
                 text={configs.app.name}
                 animateOn="hover"
