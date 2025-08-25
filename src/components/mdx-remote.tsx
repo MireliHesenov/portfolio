@@ -3,6 +3,7 @@ import reHypePreLanguage from "rehype-pre-language";
 import reHypeHighlight from "rehype-highlight";
 import reHypeHighlightCodeLines from "rehype-highlight-code-lines";
 import remarkCodeTitles from "remark-flexible-code-titles";
+import remarkGfm from "remark-gfm";
 
 export function CustomMDXRemote({ ...props }: MDXRemoteProps) {
   return (
@@ -12,7 +13,7 @@ export function CustomMDXRemote({ ...props }: MDXRemoteProps) {
       options={{
         parseFrontmatter: false,
         mdxOptions: {
-          remarkPlugins: [remarkCodeTitles],
+          remarkPlugins: [remarkGfm, remarkCodeTitles],
           rehypePlugins: [
             reHypePreLanguage,
             reHypeHighlight,
