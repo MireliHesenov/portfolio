@@ -33,6 +33,7 @@ export async function generateMetadata({
     title: article.metadata.title,
     description: article.metadata?.description,
     authors: [{ name: article.metadata.author }],
+    keywords: article.metadata.keywords,
   };
 }
 
