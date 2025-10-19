@@ -6,4 +6,7 @@ export type Project = {
   publishedAt: string;
   demo?: string;
   source?: string;
+  ios?: string;
+  android?: string;
+  url?: string;
 };

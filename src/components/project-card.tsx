@@ -23,6 +23,7 @@ export function ProjectCard({
   className,
 }: ProjectCardProps) {
   const isExternal = !!(project.source || project.demo);
+  console.log(project);
   return (
     <Card className={cn("relative gap-4 p-6", className)}>
       {project.publishedAt ? (
@@ -61,6 +62,27 @@ export function ProjectCard({
           </Button>
         ) : null}
 
+{project.url ? (
+          <Button asChild size="sm" variant="outline">
+            <a href={project.url} target="_blank" rel="noopener noreferrer">
+              Website
+            </a>
+          </Button>
+        ) : null}
+{project.ios ? (
+          <Button asChild size="sm" variant="outline">
+            <a href={project.ios} target="_blank" rel="noopener noreferrer">
+              iOS
+            </a>
+          </Button>
+        ) : null}
+        {project.android ? (
+          <Button asChild size="sm" variant="outline">
+            <a href={project.android} target="_blank" rel="noopener noreferrer">
+              Android
+            </a>
+          </Button>
+        ) : null}
         {project.demo ? (
           <Button asChild size="sm" variant="outline">
             <a href={project.demo} target="_blank" rel="noopener noreferrer">

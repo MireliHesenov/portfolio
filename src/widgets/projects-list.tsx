@@ -26,7 +26,7 @@ export function ProjectsList() {
           <SectionHeaderContent>
             <SectionHeaderTitle>Projects</SectionHeaderTitle>
             <SectionHeaderDescription>
-              Open-source projects I&apos;ve worked on.
+              Projects I&apos;ve worked on.
             </SectionHeaderDescription>
           </SectionHeaderContent>
 

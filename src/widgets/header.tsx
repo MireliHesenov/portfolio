@@ -22,21 +22,21 @@ const navigation_menu = [
     href: "/about",
     icon: "💾",
   },
-  {
-    label: "Projects",
-    href: "/projects",
-    icon: "👾",
-  },
+  // {
+  //   label: "Projects",
+  //   href: "/projects",
+  //   icon: "👾",
+  // },
   {
     label: "Portfolio",
     href: "/portfolio",
     icon: "🏗️",
   },
-  {
-    label: "Blog",
-    href: "/blog",
-    icon: "📝",
-  },
+  // {
+  //   label: "Blog",
+  //   href: "/blog",
+  //   icon: "📝",
+  // },
 ];
 
 export function Header() {
