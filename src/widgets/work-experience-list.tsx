@@ -31,7 +31,7 @@ export function WorkExperienceList() {
             <SectionHeaderTitle>Work Experience</SectionHeaderTitle>
           </SectionHeaderContent>
 
-          <SectionHeaderActions>
+          {/* <SectionHeaderActions>
             {configs.socials.linkedin?.url && (
               <Button asChild variant="link">
                 <a
@@ -44,7 +44,7 @@ export function WorkExperienceList() {
                 </a>
               </Button>
             )}
-          </SectionHeaderActions>
+          </SectionHeaderActions> */}
         </SectionHeader>
 
         {/* List */}

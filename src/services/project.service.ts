@@ -11,13 +11,17 @@ export const ProjectService = {
       options?.pagination
     );
 
+ 
+
     data.sort((a, b) => {
-      if (a.metadata?.publishedAt && b.metadata?.publishedAt) {
+ 
         return (
-          new Date(b.metadata.publishedAt).getTime() -
-          new Date(a.metadata.publishedAt).getTime()
+          new Date(b.metadata?.progressing ? '01-01-2025' : b.metadata?.publishedAt || '').getTime() -
+          new Date(a.metadata?.progressing ? '01-01-2025' : a.metadata?.publishedAt || '').getTime()
         );
-      }
+      
+    
+    
       return 0;
     });
 

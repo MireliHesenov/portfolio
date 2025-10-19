@@ -9,4 +9,5 @@ export type Project = {
   ios?: string;
   android?: string;
   url?: string;
+  progressing?: boolean;
 };

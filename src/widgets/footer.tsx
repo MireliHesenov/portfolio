@@ -28,7 +28,7 @@ export function Footer() {
   return (
     <footer data-widget="footer" className="py-10 mt-auto border-t border-border">
       <div className="container">
-        <div className="flex items-center justify-between gap-6 mb-4">
+        {/* <div className="flex items-center justify-between gap-6 mb-4">
           <div className="flex items-center md:justify-start justify-center gap-x-6 gap-y-4 flex-wrap">
             {navigation.map((item) => (
               <Link
@@ -40,14 +40,14 @@ export function Footer() {
               </Link>
             ))}
           </div>
-        </div>
+        </div> */}
 
-        <div className="flex md:flex-row flex-col items-center justify-between gap-6">
+        <div className="flex md:flex-row flex-col items-center justify-center gap-6">
           <Link
             href="/"
             className="md:text-base text-sm text-muted-foreground hover:text-primary"
           >
-            Made with ❤️ by {configs.app.author}
+            Designed and Developed by <span className="font-bold">Mirali Hasanov</span>
           </Link>
         </div>
       </div>

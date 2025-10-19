@@ -1,3 +1,4 @@
+'use client';
 import type { Project } from "@/types/project.type";
 
 import { cn } from "@/lib/utils";
@@ -6,6 +7,23 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { StarIcon } from "lucide-react";
+import VanillaTilt from 'vanilla-tilt';
+import { useEffect, useRef } from "react";
+import './styles.css';
+import { WebsiteIcon } from "@/assets/icons/website.icon";
+import { IosIcon } from "@/assets/icons/ios.icon";
+import { AndroidIcon } from "@/assets/icons/android.icon";
+
+function Tilt(props: any) {
+  const { options, ...rest } = props;
+  const tilt = useRef(null);
+
+  useEffect(() => {
+    VanillaTilt.init(tilt.current, options);
+  }, [options]);
+
+  return <div ref={tilt} {...rest} />;
+}
 
 type ProjectCardProps = {
   project: Partial<Project>;
@@ -25,25 +43,28 @@ export function ProjectCard({
   const isExternal = !!(project.source || project.demo);
   console.log(project);
   return (
-    <Card className={cn("relative gap-4 p-6", className)}>
-      {project.publishedAt ? (
+    <Tilt options={{
+      max: 25,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.5,
+    }}
+    className="w-full h-full"
+    >
+    <Card className={cn("relative gap-4 p-6 w-full h-full   glass-card ", className)}  >
+     
+
+      <div className="space-y-2">
+        <h3 className="text-lg font-semibold">
+         
+            {project.title}
+         
+        </h3>
+        {project.publishedAt ? (
         <time className="text-sm text-muted-foreground">
           {project.publishedAt.split("-").at(0)}
         </time>
       ) : null}
-
-      <div className="space-y-2">
-        <h3 className="text-lg font-semibold">
-          <Link
-            href={project.source || project.demo || `/projects/${project.slug}`}
-            target={isExternal ? "_blank" : undefined}
-            rel={isExternal ? "noopener noreferrer" : undefined}
-            className="link dark:text-link"
-          >
-            {project.title}
-          </Link>
-        </h3>
-
         <p className="text-sm text-muted-foreground">{project.description}</p>
       </div>
 
@@ -64,23 +85,26 @@ export function ProjectCard({
 
 {project.url ? (
           <Button asChild size="sm" variant="outline">
-            <a href={project.url} target="_blank" rel="noopener noreferrer">
+            <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-xs">
+              <WebsiteIcon />
               Website
             </a>
           </Button>
         ) : null}
 {project.ios ? (
           <Button asChild size="sm" variant="outline">
-            <a href={project.ios} target="_blank" rel="noopener noreferrer">
+            <a href={project.ios} target="_blank" rel="noopener noreferrer" className="text-xs">
+              <IosIcon />
               iOS
-            </a>
+              </a>  
           </Button>
         ) : null}
         {project.android ? (
           <Button asChild size="sm" variant="outline">
-            <a href={project.android} target="_blank" rel="noopener noreferrer">
+            <a href={project.android} target="_blank" rel="noopener noreferrer" className="text-xs">
+              <AndroidIcon />
               Android
-            </a>
+              </a>
           </Button>
         ) : null}
         {project.demo ? (
@@ -105,6 +129,6 @@ export function ProjectCard({
           </a>
         </div>
       ) : null}
-    </Card>
+    </Card></Tilt>
   );
 }

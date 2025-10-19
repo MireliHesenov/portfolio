@@ -136,7 +136,7 @@
 }
 
 @utility container {
-  @apply mx-auto px-4 xl:max-w-screen-lg;
+  @apply mx-auto px-4 xl:max-w-screen-xl;
 }
 
 @utility grid-cols-afa {

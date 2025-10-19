@@ -15,6 +15,12 @@ import {
 import { ThemeToggle } from "@/widgets/theme-toggle";
 
 import { HeaderMobileNavigation } from "./header-mobile-navigation";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 const navigation_menu = [
   {
@@ -53,30 +59,12 @@ export function Header() {
               className="inline-flex items-center gap-1 text-xl md:text-2xl font-bold font-leading"
             >
               {/* TODO: Replace with Image component when it's supported by Next.js */}
-              <picture>
-                <source srcSet="/images/bolt.avif" type="image/avif" />
-                <source srcSet="/images/bolt.gif" type="image/gif" />
-                <img
-                  src="/images/bolt.png"
-                  alt="logo"
-                  className="size-6"
-                  width={24}
-                  height={24}
-                  draggable={false}
-                />
-              </picture>
-              <DecryptedText
-                text={configs.app.name}
-                animateOn="hover"
-                revealDirection="start"
-                speed={60}
-                sequential
-              />
+             <span className={`${poppins.className}`}>hasanov<span className={`${poppins.className} text-sm font-bold font-sans`}>.dev</span></span>
             </Link>
           </div>
-
+    <div></div>
           {/* Navigation menu on desktop */}
-          <NavigationMenu>
+          {/* <NavigationMenu>
             <NavigationMenuList className="md:flex hidden">
               {navigation_menu.map((item) => (
                 <NavigationMenuItem key={item.label}>
@@ -94,17 +82,17 @@ export function Header() {
                 </NavigationMenuItem>
               ))}
             </NavigationMenuList>
-          </NavigationMenu>
+          </NavigationMenu> */}
 
           <div className="flex items-center gap-2 ml-auto">
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
 
-            <HeaderMobileNavigation navigation={navigation_menu} />
+            {/* <HeaderMobileNavigation navigation={navigation_menu} /> */}
           </div>
         </div>
       </div>
 
-      <Guidelines />
+      {/* <Guidelines /> */}
     </header>
   );
 }

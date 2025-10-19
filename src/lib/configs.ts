@@ -18,11 +18,11 @@ export const configs = {
       icon: LinkedinIcon,
       url: "https://www.linkedin.com/in/firuzcan",
     },
-    github: {
-      name: "GitHub",
-      icon: GithubIcon,
-      url: "https://github.com/firuzcanh",
-    },
+    // github: {
+    //   name: "GitHub",
+    //   icon: GithubIcon,
+    //   url: "https://github.com/firuzcanh",
+    // },
     email: {
       name: "E-mail",
       icon: EnvelopeIcon,

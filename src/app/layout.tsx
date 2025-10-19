@@ -60,7 +60,7 @@ export default function RootLayout({
           <Footer />
 
           {/* Guidelines / Rulers on the entire page */}
-          <Guidelines isFixed />
+          {/* <Guidelines isFixed /> */}
         </ThemeProvider>
       </body>
     </html>
